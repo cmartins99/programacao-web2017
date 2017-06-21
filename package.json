@@ -1,0 +1,8 @@
+{
+    "name": "HTML5App1",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "cmart",
+    "contributors": [],
+    "dependencies": {}
+}

@@ -1,0 +1,64 @@
+http://belem.ifpa.edu.br/cursos/61-cursos/121-tecnologo-em-desenvolvimento-de-sistemas
+
+Tecnólogo em Análise e Desenvolvimento de Sistemas
+1. Apresentação
+O Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas (TADS) do IFPA provê uma formação que capacita o profissional para a automação dos sistemas de informação das organizações, com vistas a atender as necessidades do mercado de trabalho corrente. As necessidades que podem ser atendidas abrangem o desenvolvimento, implantação e gerenciamento de sistemas e infraestrutura para uso em processos organizacionais, nas variadas necessidades expostas pelo mercado.
+
+2. Objetivos
+O curso tem como objetivo geral preparar profissionais capazes de realizar atividades de concepção, especificação, projeto, implementação, avaliação, suporte e manutenção de sistemas e tecnologias de processamento de dados e informações, incluindo software, aspectos organizacionais e humanos e visando a produção de bens, serviços e conhecimentos.
+
+Os objetivos específicos do curso compreendem:
+Especificação, instalação e utilização de sistemas de computadores;
+Interligação de sistemas de computadores;
+Programar usando Linguagens de Programação;
+Instalação e utilização aplicativos computacionais;
+Especificação, análise, implementação e documentação de sistemas de informação;
+Instalação, treinamento e manutenção de softwares desenvolvidos;
+Projeto, desenvolvimento, configuração e gerência de aplicações baseados na Web;
+Projeto e administração de banco de dados; e
+Gerência de projetos de software;
+Apoiar o planejamento e gerenciamento da infraestrutura necessária para sistemas de informação;
+Atuar de forma empreendedora na geração de novas oportunidades de negócio e de trabalho;
+Auxiliar na pesquisa aplicada e desenvolvimento em sistemas de informação;
+Atuar em consultoria de implantação de sistemas de informação;
+
+Face ao exposto, entre as diversas funções e postos de trabalhos que o Tecnólogo em Desenvolvimento de Sistemas de Informação do IFPA pode exercer no mercado de trabalho, tendo sempre no desenvolvimento de sistemas como foco principal, podem ser destacados as seguintes:
+Programador de Computador;
+Analista de Sistemas;
+Analista de Tecnologia da Informação;
+Desenvolvedor de Sistemas de Informação para Web;
+Analista Programador;
+Administrador de Banco de Dados.
+
+
+
+3. PERFIL DO CURSO
+O Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas do IFPA provê uma formação que capacita o profissional para a automação dos sistemas de informação das organizações, com vistas a atender as necessidades do mercado de trabalho corrente. As necessidades que podem ser atendidas abrangem o desenvolvimento, implantação e gerenciamento de sistemas e infraestrutura para uso em processos organizacionais, nas variadas necessidades expostas pelo mercado.
+A formação tecnológica proposta na organização curricular deve propiciar ao aluno condições de assimilar, integrar e produzir conhecimentos científicos e tecnológicos na área específica de sua formação; analisar criticamente a dinâmica da sociedade e as diferentes formas de participação do cidadão-tecnólogo nesse contexto; e desenvolver as capacidades necessárias ao desempenho das atividades profissionais.
+O Curso é semestral e são ofertadas cinquenta vagas anualmente da seguinte forma: uma turma no primeiro semestre à noite com 25 alunos, e uma turma no segundo semestre à tarde com 25 alunos, sendo o tempo mínimo de integralização são três anos e tempo máximo são seis anos conforme a organização didática da instituição. Sendo que alunos provenientes de processo seletivo especial como vestibulinho, ou alunos transferidos de outra instituição podem eventualmente integralizar em menor tempo caso tenham disciplinas que possam ser creditadas no curso.
+
+CORPO DOCENTE
+
+Nome / Titulação
+
+Andracir Oliveira da Silva / Mestre em Ciência da Computação(UFSC)
+André Moacir Lage de Miranda / Doutor em Engenharia Elétrica(UFPA)
+Andréa Lílian Marques da Costa / Doutora em Educação(PUC/SP)
+Antônio Marcos Trindade Lopes / Especialista em Redes de Computadores (UFPA)
+Cláudio Alex Jorge da Rocha / Doutor em Engenharia Elétrica (UFPA)
+Cláudio Roberto de Lima Martins / Mestre em Ciência da Computação (UFRGS)
+Clovis Machado de Souza Filho / Especialista em Ciência da Computação (UFRGS)
+Clóvis Maxwell Andrade Martins / Especialista em Relações Étnicos e Raciais (IFPA)
+Delcio Nonato Araújo da Silva / Mestre em Ciência da Computação (UFRGS)
+Fabrício Medeiros Alho / Mestre em Ciência da Computação (UFPA)
+Fanny Santos de Miranda / Especialista em Educação de Jovens e Adultos – PROEJA (IFPA)
+Marcio Góes do Nascimento / Mestre em Ciência da Computação (UFPA)
+Marcio Wariss Monteiro / Mestre em Comunicação e Semiótica (PUC/SP)
+Marco Antônio da Silva Sussuarana / Graduado em Engenharia Elétrica
+Marcos Vinícius Sadala / Mestre em Engenharia Elétrica (UFPA)
+Paulo Henrique Gonçalves Bezerra / Mestre em Engenharia Elétrica (UFPA)
+Ricardo José Souza de Cabeça / Mestre em Ciência da Computação (UFSC)
+Ricardo Monção de Souza / Graduado em Tecnologia em Processamento de Dados
+Rita de Cássia Cerqueira Gomes / Mestre em Ciência da Computação (UFSC)
+Zilma Betânia Ribeiro Daou / Mestre em Informática (UFPB)
+

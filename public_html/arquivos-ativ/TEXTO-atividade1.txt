@@ -1,0 +1,22 @@
+Curso para "Desenvolvedor Web"
+
+Aprenda programação web e crie um site do zero do básico ao avançado. Você vai aprender HTML5, CSS3 e JavaScript.
+O que aprenderei?
+
+Crie sites incríveis com HTML5 e CSS3 
+Criar um site responsivo temático e uma aplicação de carrinho de compras 
+Conhecer técnicas e dicas mostradas em 10h de aulas em vídeo
+
+Descrição
+
+Você quer se tornar um Programador WEB?
+
+Qualquer que seja sua motivação, bem-vindo ao nosso curso de programação web.
+
+Este curso de Desenvolvedor Web vai proporcionar tudo o que você precisa saber para criar seu próprio website.
+
+Neste curso cobriremos em mais de 12 horas de conteúdo os seguintes tópicos:
+1) HTML5, CSS3 e JavaScript com os comandos mais importantes. 
+2) Criar um site completo e responsivo que se adapta no Tablet e Smartphone e em telas maiores. 
+3) Trabalhar com imagens, áudio, vídeo usando boas práticas. 
+4) Aprender a criar um carrinho de compras completo com cálculo de frete para uma loja virtual, utilizando PHP e MySQL.
