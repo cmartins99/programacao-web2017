@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form action="" name="Form1" method="get">
+      <label for="id_nome">Nome:</label>
+      <input type="text" name="nome" size="20" id="id_nome" />
+      <br>
+      <label for="id_sobrenome">Sobrenome:</label>
+      <input type="text" name="sobrenome" size="20" id="id_sobrenome" />
+      <br>
+      <div>
+        <strong>Sexo:</strong>
+        <label for="id_masc">Masculino</label>
+        <input type="radio" name="genero" id="id_masc" value="male">
+        <label for="id_fem">Femenino</label>
+        <input type="radio" name="genero" id="id_fem" value="female">
+      </div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
