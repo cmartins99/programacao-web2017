@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<form action="" name="Form">
+
+  <br>Palavra chave: <input type="search" name="search">
+  <br>Email: <input type="email" name="email" required>
+  <br>Sua idade: <input type="number" min="5" max="18" step="1" value="12" name="idade">
+
+  <br>Volume:
+  <input type="range" id="vol" name="vol" value="0" min="0" max="100" step="0.5" oninput="display.value=value" onchange="display.value=value">
+  <input type="text" id="display" value="0" size="2" oninput="vol.value=value" onchange="vol.value=value">
+
+  <br>Data:
+  <input id="startdate" name="startdate" min="2012-01-01" max="2020-01-01" type="date">
+
+  <input type="submit">
+</form>
