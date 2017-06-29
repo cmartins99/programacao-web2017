@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/action_page.php">
+Escolha o produto:
+  <input list="produtos" name="prod" required>
+  <datalist id="produtos">
+    <option value="Pendrive 16G">
+    <option value="Disco SD 256G">
+    <option value="Memória RAM 4G">
+    <option value="Teclado ABNT">
+  </datalist>
+  Quantidade (1 a 15):
+  <input type="number" min="1" max="15" value="1">
+  <br><input type="submit">
+</form>
+
+</body>
+</html>
