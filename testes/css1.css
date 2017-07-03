@@ -1,12 +1,18 @@
-Table {
+table {
  Width: 410px;
  }
-Td { 
+th { 
  Width: 100px;
  Height: 40px;
- Background: #666;
+ Background: #00FF00;
  Border: 1px solid #F00
 }
-Table, tr, td{
+td { 
+ Width: 100px;
+ Height: 40px;
+ Background: #00FFFF;
+ Border: 1px solid #F00
+}
+table, th, tr, td{
  Border-collapse: collapse
 } 
