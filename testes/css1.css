@@ -1,0 +1,12 @@
+Table {
+ Width: 410px;
+ }
+Td { 
+ Width: 100px;
+ Height: 40px;
+ Background: #666;
+ Border: 1px solid #F00
+}
+Table, tr, td{
+ Border-collapse: collapse
+} 
