@@ -1,1 +1,2 @@
-Esse é um pequeno exemplo em AJAX.
+<h2>jQuery e AJAX é 10!</h2>
+<p id="p1"> Esse é um pequeno exemplo em AJAX <p>
