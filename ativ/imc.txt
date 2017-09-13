@@ -1,0 +1,6 @@
+<P>O Índice de Massa Corporal (IMC) é uma medida indicada pela Organização Mundial de Saúde para relacionar o peso
+corporal com os riscos para a saúde. Calcule o seu IMC e avalie a sua condição.
+</P>
+<P>O IMC não traduz corretamente a composição corporal e os vários patamares não são aplicáveis para algumas pessoas,
+como mulheres grávidas, crianças com menos de 18 anos e desportistas.
+</P>
