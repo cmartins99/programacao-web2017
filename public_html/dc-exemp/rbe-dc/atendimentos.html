@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dc.js Experiment</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/dc/2.0.0-beta.32/dc.css' rel='stylesheet' type='text/css'>
+        <style>
+            .dc-chart { font-size: 12px; }
+            .dc-grid-top { padding-left: 10px; font-size: 14px; font-weight: bold; }
+            .dc-grid-item { padding-left: 10px; font-size: 12px; font-weight: normal; }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js' type='text/javascript'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js' type='text/javascript'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dc/2.0.0-beta.32/dc.js' type='text/javascript'></script>
+
+        <script>
+            $(document).ready(function () {
+                console.log("document loaded");
+                dashboar();
+            });
+
+            $(window).on("load", function () {
+                console.log("window loaded");
+            });
+        </script>
+    </head>
+
+
+    <body>
+        <div class="container-fluid">
+            <h1>Atendimentos</h1>
+            <select id="ano-select">
+                <option value="atend-2017-01.csv">2017-JAN</option>
+                <option value="atend-2017-02.csv">2017-FEV</option>
+                <option value="atend-2017-03.csv">2017-MAR</option>
+                <option value="atend-2017-12.csv">2017-DEZ</option>
+            </select>
+            <div>
+                <div id = "mystats" class = "dc-data-count" >
+                    <span class = "filter-count"></span> 
+                    selecionado de um Total de 
+                    <span class = "total-count"></span> | 
+                    <a href = "javascript:dc.filterAll();
+                       dc.renderAll();">Reset</a>
+                </div>
+
+            </div>
+
+            <div style = "clear: both; padding-top: 10px;">
+                <div class="row">
+                    <div class="col-xs-6" id = "pie" ></div>
+                    <div class="col-xs-6" id = "line" ></div>
+                </div>
+            </div>
+
+            <div style = "clear: both">
+                <div class = "dc-data-grid" id = "mygrid"></div>
+            </div>
+        </div>
+
+        <script language = "javascript">
+            var mycrossfilter = crossfilter();
+            
+            function dashboar() {
+                var fileCSV = $("#ano-select").val();
+                console.log(fileCSV);   // "atend-2017-12.csv"
+                var barChart = dc.barChart('#line'); // , 'myChartGroup');
+                var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
+                var countChart = dc.dataCount("#mystats");
+              //  var gridChart = dc.dataGrid("#mygrid");
+
+                d3.csv(fileCSV, function (errors, people) {
+                    if (errors) {
+                        console.log(errors);
+                        
+                        alert("Erro na carga dos dados.");
+                        return errors;
+                    }
+                    mycrossfilter = crossfilter(people);
+
+                    //  dimension:  DIA atendimentos
+                    var diaDimension = mycrossfilter.dimension(function (data) {
+                        return diaSemana(data.dia, data.mes, data.ano);                      // +data.dia;
+                    });
+                    // var diaGroup = diaDimension.group().reduceSum(function (data) {
+                    //   return  +data.quant;
+                    // });
+                    var diaGroup = diaDimension.group().reduceCount();
+
+                    //  dimension: Unidade de Saude
+                    var unidDimension = mycrossfilter.dimension(function (data) {
+                        return data.unidade;
+                    });
+                    var unidGroup = unidDimension.group().reduceCount();
+
+                    barChart 
+                            .width(700)
+                            .height(400)
+                            .x(d3.scale.ordinal())
+                            // .x(d3.scale.linear().domain([0, 31]) )
+
+                            .yAxisLabel("Quant-Atendimentos")
+                            .xAxisLabel("")
+                            
+                            .elasticY(true)
+                            .elasticX(true)
+                            .xUnits(dc.units.ordinal)
+                            
+                            .dimension(diaDimension)
+                            .group(diaGroup);
+
+                    barChart.renderlet(function (chart) {
+                        chart.selectAll("g.x text")
+                                .attr('dx', '-25')
+                                .attr('transform', "rotate(-45)");
+                    });
+
+                    pieChart
+                            .width(500)
+                            .height(200)
+                            .dimension(unidDimension)
+                            .group(unidGroup);
+
+                    countChart
+                            .dimension(mycrossfilter)
+                            .group(mycrossfilter.groupAll());
+                    /*
+                     gridChart
+                     .dimension(diaDimension)
+                     .group(function (data) {
+                     return data.dia;
+                     })
+                     .size(200)
+                     .htmlGroup(function (d) {
+                     return 'UNIDADE: ' + d.key +
+                     '; Count: ' + d.values.length +
+                     ' people'
+                     })
+                     .html(function (d) {
+                     return d.unidade;
+                     })
+                     .sortBy(function (d) {
+                     return d.unidade;
+                     })
+                     .order(d3.ascending);
+                     */
+                    barChart.render();
+                    pieChart.render();
+                    countChart.render();
+                  //  gridChart.render();
+                });
+            }
+        </script>
+
+        <script>
+            $('#ano-select').change(function () {
+                // alert('Selected value: ' + $(this).val());
+
+                //
+                // dc.filterAll();
+                // dc.renderAll();
+                 
+                dashboar();
+            });
+
+            function diaSemana(d, m, y) {
+                var dt = new Date(m + "/" + d + "/" + y);
+                var weekday = new Array(7);
+                weekday[0] = "DOM";
+                weekday[1] = "SEG";
+                weekday[2] = "TER";
+                weekday[3] = "QUA";
+                weekday[4] = "QUI";
+                weekday[5] = "SEX";
+                weekday[6] = "SAB";
+
+                var n = formatZero(d) + "-" + weekday[dt.getDay()];
+                return n;
+            }
+            function formatZero(n) {
+                return n > 9 ? "" + n : "0" + n;
+            }
+        </script>
+    </body>
+</html>
