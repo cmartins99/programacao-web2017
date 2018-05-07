@@ -20,7 +20,8 @@
 
         <script>
             $(document).ready(function () {
-                console.log("document loaded");
+                // console.log("document loaded");
+                $("#msg").hide();
                 dashboar();
             });
 
@@ -40,15 +41,16 @@
                 <option value="atend-2017-03.csv">2017-MAR</option>
                 <option value="atend-2017-12.csv">2017-DEZ</option>
             </select>
+            
             <div>
                 <div id = "mystats" class = "dc-data-count" >
                     <span class = "filter-count"></span> 
-                    selecionado de um Total de 
+                    selecionados de um Total de 
                     <span class = "total-count"></span> | 
                     <a href = "javascript:dc.filterAll();
                        dc.renderAll();">Reset</a>
                 </div>
-
+                <div id = "msg" class="alert alert-danger">Não há dados para esse período.</div>
             </div>
 
             <div style = "clear: both; padding-top: 10px;">
@@ -65,22 +67,30 @@
 
         <script language = "javascript">
             var mycrossfilter = crossfilter();
-            
+
             function dashboar() {
+                $("#pie").show();
+                    $("#line").show();
+                    $("#mystats").show();
+                    $("#msg").hide();
                 var fileCSV = $("#ano-select").val();
                 console.log(fileCSV);   // "atend-2017-12.csv"
                 var barChart = dc.barChart('#line'); // , 'myChartGroup');
                 var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
                 var countChart = dc.dataCount("#mystats");
-              //  var gridChart = dc.dataGrid("#mygrid");
+                //  var gridChart = dc.dataGrid("#mygrid");
 
                 d3.csv(fileCSV, function (errors, people) {
                     if (errors) {
                         console.log(errors);
-                        
-                        alert("Erro na carga dos dados.");
+                        $("#pie").hide(); 
+                        $("#line").hide(); 
+                        $("#mystats").hide();
+                        $("#msg").show();
+                       // alert("Erro na carga dos dados.");
                         return errors;
                     }
+                    
                     mycrossfilter = crossfilter(people);
 
                     //  dimension:  DIA atendimentos
@@ -98,7 +108,7 @@
                     });
                     var unidGroup = unidDimension.group().reduceCount();
 
-                    barChart 
+                    barChart
                             .width(700)
                             .height(400)
                             .x(d3.scale.ordinal())
@@ -106,12 +116,12 @@
 
                             .yAxisLabel("Quant-Atendimentos")
                             .xAxisLabel("")
-                            
+
                             .elasticY(true)
                             .elasticX(true)
                             .xUnits(dc.units.ordinal)
-                            
                             .dimension(diaDimension)
+                            // .ordinalColors(["#56B2EA","#E064CD","#F8B700","#78CC00","#7B71C5"])
                             .group(diaGroup);
 
                     barChart.renderlet(function (chart) {
@@ -119,12 +129,31 @@
                                 .attr('dx', '-25')
                                 .attr('transform', "rotate(-45)");
                     });
+                    barChart
+                            // (optional) whether this chart should generate user interactive brush to allow range
+                            // selection, :default=true.
+                            .brushOn(true)
+                            // (optional) whether svg title element(tooltip) should be generated for each bar using
+                            // the given function, :default=no
+                            .title(function (d) {
+                                return "Atends: " + d.value;
+                            })
+                            // (optional) whether chart should render titles, :default = false
+                            .renderTitle(true);
 
                     pieChart
-                            .width(500)
-                            .height(200)
+                            .width(250)
+                            .height(250)
+                            .innerRadius(10)
                             .dimension(unidDimension)
+                            //  .ordinalColors(["#56B2EA","#E064CD","#F8B700","#78CC00","#7B71C5"])
                             .group(unidGroup);
+
+                    pieChart.renderlet(function (chart) {
+                        chart.selectAll('text.pie-slice').text(function (d) {
+                            return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2 * Math.PI) * 100) + '%';
+                        })
+                    })
 
                     countChart
                             .dimension(mycrossfilter)
@@ -152,7 +181,7 @@
                     barChart.render();
                     pieChart.render();
                     countChart.render();
-                  //  gridChart.render();
+                    //  gridChart.render();
                 });
             }
         </script>
@@ -164,7 +193,7 @@
                 //
                 // dc.filterAll();
                 // dc.renderAll();
-                 
+
                 dashboar();
             });
 
