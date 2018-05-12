@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial DC.js Geo Choropleth Chart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.9/dc.min.css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.9/dc.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.1/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+
+    </head>
+    <body>
+        <h1>Geo Choropleth Chart: US Venture Capital Landscape 2011</h1>
+        <div id="geoChoroplethChart"></div>
+
+        <script>
+            d3.csv("vc.csv", function (error, csvData) {
+                // console.log(csvData);
+                csvData.forEach(function (d) {
+                    d.Raised = +d.Raised
+                });
+                var facts = crossfilter(csvData);
+                var dimensionByState = facts.dimension(function (d) {
+                    return d.State
+                });
+                var groupByRaised = dimensionByState.group().reduceSum(function (d) {
+                    return d.Raised
+                });
+                d3.json("us-states.json", function (error, jsonData) {
+                    var geoChoroplethChart = dc.geoChoroplethChart("#geoChoroplethChart")
+                            .width(1024)
+                            .height(600)
+                            .dimension(dimensionByState)
+                            .projection(projection)
+                            .group(groupByRaised)
+                            .overlayGeoJson(jsonData.features, "State", function (d) {
+                                return d.properties.name;
+                            })
+                            .colors(d3.scale.quantize().range(["#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF", "#51AEFF", "#36A2FF", "#1E96FF", "#0089FF", "#0061B5"]))
+                            .colorDomain([0, 200])
+                            .colorCalculator(function (d) {
+                                return d ? geoChoroplethChart.colors()(d) : '#ccc';
+                            });
+                    dc.renderAll();
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>
