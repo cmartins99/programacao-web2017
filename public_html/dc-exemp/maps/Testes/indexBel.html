@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <meta charset="utf-8">
+        <title>Geo Choropleth Chart</title>
+        <!-- script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.1/d3.min.js"></script -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.9/dc.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.9/dc.min.css" />
+    </head>
+    <body>
+        <h1>Geo Map d3 Chart: BELEM</h1>
+        <div id="geoChoroplethChart"></div>
+
+        <script type="text/javascript">
+         var projection = d3
+		.geoMercator()  
+               // .geoEquirectangular()
+		.scale(4000)	 
+		.rotate([-0.25, 0.25, 0]) 
+		.center([-48.44352722167969, -1.4723492196197163]); //belem
+        var path = d3.geoPath().projection(projection);
+        var map = d3.select("body")
+		.append("svg")
+		.attr("width", 960)
+		.attr("height", 500); 
+        
+        d3.json("geojs-100-mun-BR.json", drawMaps);
+        
+
+        
+        function drawMaps(geojson) {
+		map.selectAll("path")
+			.data(geojson.features)
+			.enter()
+			.append("path")
+			.attr("d", path)   
+			.attr("fill", "green")
+			.attr("fill-opacity", 0.5)
+			.attr("stroke", "#222");    
+	}
+        
+        </script>
+
+    </body>
+</html>
