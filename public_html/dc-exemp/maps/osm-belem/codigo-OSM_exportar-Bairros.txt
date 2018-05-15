@@ -1,0 +1,8 @@
+[out:json][timeout:25];
+{{geocodeArea:Belém PA Brasil}}->.searchArea;
+(
+  relation["admin_level"="10"](area.searchArea);
+);
+out body;
+>;
+out skel qt;

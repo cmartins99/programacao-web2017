@@ -18,7 +18,7 @@
          var projection = d3
 		.geoMercator()  
                // .geoEquirectangular()
-		.scale(4000)	 
+		.scale(50000)	 
 		.rotate([-0.25, 0.25, 0]) 
 		.center([-48.44352722167969, -1.4723492196197163]); //belem
         var path = d3.geoPath().projection(projection);
@@ -27,10 +27,10 @@
 		.attr("width", 960)
 		.attr("height", 500); 
         
-        d3.json("geojs-100-mun-BR.json", drawMaps);
-        
+//        d3.json("geojs-100-mun-BR.json", drawMaps);
 
-        
+        d3.json("belem-bairros.geojson", drawMaps);
+ 
         function drawMaps(geojson) {
 		map.selectAll("path")
 			.data(geojson.features)
